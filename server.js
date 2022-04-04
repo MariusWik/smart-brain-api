@@ -31,6 +31,6 @@ app.post("/imageurl/", image.handleApiCall());
 
 app.post("/register", register.handleRegister(db, bcrypt));
 
-app.listen(3000, () => {
-  console.log("app is runnign on port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`app is runnign on port ${process.env.PORT}`);
 });
