@@ -25,6 +25,17 @@ app.use(cors());
 
 app.post("/signin", signin.handleSignin(db, bcrypt));
 
+app.get('/', (req, res, next) => {
+
+  res.status(200).json({
+      status: 'success',
+      data: {
+          name: 'smart-brain',
+          version: '0.1.0'
+      }
+  });
+
+});
 app.get("/profile/:id", profile.handleProfileGet(db));
 app.put("/image/", image.handleImage(db));
 app.post("/imageurl/", image.handleApiCall());
